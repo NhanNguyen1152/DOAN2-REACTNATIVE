@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "618891295167",
+    "project_id": "demoreactnative-51c00",
+    "storage_bucket": "demoreactnative-51c00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618891295167:android:82062bac5fe723c96f890a",
+        "android_client_info": {
+          "package_name": "com.demoreactnative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618891295167-bt2ub09ioedl5vf4sf32dn3ui5ulpl1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt3dJYp9r5WnwJq7qk-X68K1HybaPRGxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618891295167-bt2ub09ioedl5vf4sf32dn3ui5ulpl1n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618891295167:android:1084267cfb08b8f36f890a",
+        "android_client_info": {
+          "package_name": "vn.com.demoreactnative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618891295167-bt2ub09ioedl5vf4sf32dn3ui5ulpl1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt3dJYp9r5WnwJq7qk-X68K1HybaPRGxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618891295167-bt2ub09ioedl5vf4sf32dn3ui5ulpl1n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
