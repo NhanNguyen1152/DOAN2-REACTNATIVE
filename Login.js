@@ -5,12 +5,22 @@ import {
   Text,
   View,
   TextInput,
+  TouchableOpacity,
   Button,
+  Image,
+  ImageBackground,
+  KeyboardAvoidingView,
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {NavigationInjectedProps} from 'react-navigation';
 import firestore from '@react-native-firebase/firestore';
+import {color} from 'react-native-reanimated';
+
 export default class Login extends React.Component {
   //static navigationOptions = {header: null}
+
   constructor(props) {
     super(props);
     this.state = {
@@ -18,34 +28,34 @@ export default class Login extends React.Component {
       Password: '',
       email: '',
       pass: '',
+      tam: '',
     };
   }
 
   shoot = async () => {
     const {navigate} = this.props.navigation;
-    const {Username} = this.state;
-    const data = await firestore()
-      .collection('VerifyLogin')
-      .doc(Username)
-      .get()
-      .then(snap => {
-        console.log(snap.data());
-        this.setState({
-          email: snap.data().Email,
-          pass: snap.data().Pass,
-        });
-      });
+    const {Username, Password, email, pass} = this.state;
     if (this.state.Username != null && this.state.Password != null) {
+      const data = await firestore()
+        .collection('VerifyLogin')
+        .doc(Username)
+        .get()
+        .then(snap => {
+          console.log(snap.data());
+          this.setState({
+            email: snap.data().Email,
+            pass: snap.data().Pass,
+          });
+        });
+      // if(this.state.Username != null && this.state.Password != null){
       if (
         this.state.Username == this.state.email &&
         this.state.Password == this.state.pass
       ) {
         alert('Dang nhap thanh cong');
-        this.props.navigation.navigate('FirebaseApp', {
-          data1: this.state.Username,
-        });
-        //const {navigate} = this.props.navigation;
+        const {navigate} = this.props.navigation;
         navigate('FirebaseApp');
+        //console.log("thanh cong");
       } else {
         alert('Sai ten dang nhap hoac mat khau');
       }
@@ -55,35 +65,58 @@ export default class Login extends React.Component {
   };
 
   render() {
-    // const { navigate } = this.props.navigation;
+    const {navigate} = this.props.navigation;
     return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.inputContainer}>
-          <TextInput
-            value={this.state.Username}
-            placeholder="Tên đăng nhập"
-            style={styles.Input}
-            onChangeText={Username => this.setState({Username})}
-          />
-          <TextInput
-            value={this.state.Password}
-            placeholder="Mật khẩu "
-            style={styles.Input}
-            secureTextEntry={true}
-            onChangeText={Password => this.setState({Password})}
-          />
-          <Button
-            onPress={() => {
-              this.shoot,
-                this.props.navigation.navigate('FirebaseApp', {
-                  data1: this.state.Email,
-                });
-            }}
-            title="Go"
-            color="#841584"
-          />
+      <ImageBackground
+        source={require('./hinhanh/TrangDangNhap6.png')}
+        style={styles.image}>
+        <View style={styles.container}>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={{flex: 1, justifyContent: 'space-between'}}>
+            <View style={styles.containerlogin}>
+              <View style={styles.view_uc_pass}>
+                <Image
+                  style={styles.searchIcon}
+                  source={require('./hinhanh/iconusername.png')}
+                />
+                <TextInput
+                  value={this.state.Username}
+                  placeholder="Tài khoản"
+                  placeholderTextColor="grey"
+                  style={styles.textInput}
+                  onChangeText={Username => this.setState({Username})}
+                />
+              </View>
+              <View style={styles.view_uc_pass}>
+                <Image
+                  style={styles.searchIcon}
+                  source={require('./hinhanh/iconpassword.png')}
+                />
+                <TextInput
+                  value={this.state.Password}
+                  placeholder="Mật khẩu"
+                  placeholderTextColor="grey"
+                  style={styles.textInput}
+                  secureTextEntry={true}
+                  onChangeText={Password => this.setState({Password})}
+                />
+              </View>
+              <View>
+                <TouchableOpacity style={styles.button} onPress={this.shoot}>
+                  <Text>Đăng nhập</Text>
+                </TouchableOpacity>
+              </View>
+              <View>
+                <Text onPress={this.shoot} style={styles.forget}>
+                  {'Quên mật khẩu'}
+                </Text>
+              </View>
+            </View>
+            <Text style={styles.copy}>Copyright by Thai-Nhan</Text>
+          </KeyboardAvoidingView>
         </View>
-      </SafeAreaView>
+      </ImageBackground>
     );
   }
 }
@@ -91,18 +124,81 @@ export default class Login extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    //backgroundColor: 'red',
+    paddingHorizontal: 30,
   },
-  inputContainer: {
-    margin: 50,
+  containerlogin: {
+    flex: 0.5,
+    //backgroundColor: 'blue',
+    paddingHorizontal: 10,
+    marginTop: 340,
+  },
+  view_uc_pass: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    //backgroundColor: '#fff',
+    //borderWidth: 0.5,
+    //borderColor: '#000',
+    //height: 40,
+    //borderRadius: 5,
+    marginTop: 10,
   },
   textInput: {
-    height: 50,
+    flex: 1,
+    // height: 50,
     textAlign: 'center',
-    color: '#333333',
-    marginBottom: 25,
-    fontSize: 24,
-    borderWidth: 1,
-    borderBottomColor: '#111111',
+    color: 'grey',
+    marginTop: 10,
+    fontSize: 18,
+    // borderBottomColor: '#111111',
+    //borderWidth: 1,
+    // borderRadius: 20,
+    height: 40,
+    borderColor: '#000000',
+    borderBottomWidth: 1,
+    //inlineImageLeft="iconusername.png"
+    //marginBottom: 36
+  },
+  searchIcon: {
+    //color: 'grey',
+    padding: 10,
+    margin: 0,
+    height: 25,
+    width: 25,
+    resizeMode: 'stretch',
+    alignItems: 'center',
+    //backgroundColor: 'red'
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#27AEEE',
+    padding: 15,
+    borderRadius: 20,
+    marginTop: 10,
+    elevation: 5,
+  },
+  textclick: {
+    alignItems: 'flex-end',
+    backgroundColor: '#27AEEE',
+    padding: 15,
+    //borderRadius: 20,
+    marginTop: 4,
+    //color: '#EEE',
+  },
+  image: {
+    flex: 1,
+    resizeMode: 'cover',
+  },
+  forget: {
+    textAlign: 'right',
+    color: '#AAA',
+    fontSize: 21,
+    marginTop: 5,
+  },
+  copy: {
+    textAlign: 'center',
+    fontSize: 15,
+    color: 'red',
   },
 });

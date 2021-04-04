@@ -1,10 +1,19 @@
 
-import React from 'react';
-import {AppRegistry, StyleSheet, Text, View, TouchableOpacity, Button, TextInput, Alert} from 'react-native';
+//import React from 'react';
+import {AppRegistry, TouchableOpacity, Alert} from 'react-native';
+import React, {Component} from 'react';
+import {
+  StyleSheet,
+  SafeAreaView,
+  Text,
+  View,
+  TextInput,
+  Button,
+} from 'react-native';
 import {StackNavigator,} from 'react-navigation';
-import {firebaseApp} from './FirebaseConfig';
-import {EMAIL, PASSWORD} from './Regexs';
-import styles from './Styles';
+import firestore from '@react-native-firebase/firestore';
+//import {EMAIL, PASSWORD} from './Regexs';
+//import styles from './Styles';
 
 class Login extends React.Component {
   static navigationOptions = {header: null}
@@ -73,7 +82,7 @@ class Login extends React.Component {
   render() {
     const {navigate} = this.props.navigation;
     return(
-      <View style={styles.container}>
+      <View style={styles.inputContainer}>
         <TextInput
           style={[styles.inputStyle, !this.state.emailValid? styles.error:null]}
           placeholder='Email'
