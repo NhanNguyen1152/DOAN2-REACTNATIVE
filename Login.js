@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Button,
   Image,
-  ImageBackground,
+  ImageBackground, Dimensions,
   KeyboardAvoidingView,
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
@@ -17,6 +17,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationInjectedProps} from 'react-navigation';
 import firestore from '@react-native-firebase/firestore';
 import {color} from 'react-native-reanimated';
+
+const heightS = Dimensions.get("screen").height;
 
 export default class Login extends React.Component {
   //static navigationOptions = {header: null}
@@ -33,9 +35,9 @@ export default class Login extends React.Component {
   }
 
   shoot = async () => {
-    const {navigate} = this.props.navigation;
+    //const {navigate} = this.props.navigation; 
     const {Username, Password, email, pass} = this.state;
-    if (this.state.Username != null && this.state.Password != null) {
+    if (this.state.Username.trim() && this.state.Password.trim()) {
       const data = await firestore()
         .collection('VerifyLogin')
         .doc(Username)
@@ -49,8 +51,8 @@ export default class Login extends React.Component {
         });
       // if(this.state.Username != null && this.state.Password != null){
       if (
-        this.state.Username == this.state.email &&
-        this.state.Password == this.state.pass
+        this.state.Username === this.state.email &&
+        this.state.Password === this.state.pass
       ) {
         alert('Dang nhap thanh cong');
         const {navigate} = this.props.navigation;
@@ -64,16 +66,19 @@ export default class Login extends React.Component {
     }
   };
 
+  taomoi = async =>{
+    const {navigate} = this.props.navigation; 
+    navigate('Createacc');
+  }
+
   render() {
     const {navigate} = this.props.navigation;
     return (
       <ImageBackground
-        source={require('./hinhanh/TrangDangNhap6.png')}
-        style={styles.image}>
+        resizeMode= 'cover'
+        source={require('./hinhanh/TrangDangNhap6.png')} 
+        style={{width:'100%', height:heightS, flex:1}}>
         <View style={styles.container}>
-          <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={{flex: 1, justifyContent: 'space-between'}}>
             <View style={styles.containerlogin}>
               <View style={styles.view_uc_pass}>
                 <Image
@@ -108,13 +113,14 @@ export default class Login extends React.Component {
                 </TouchableOpacity>
               </View>
               <View>
-                <Text onPress={this.shoot} style={styles.forget}>
+                <Text  style={styles.forget}>
                   {'Quên mật khẩu'}
+                </Text>
+                <Text  style={styles.forget} onPress={this.taomoi}>
+                  {'Thêm tài khoản'}
                 </Text>
               </View>
             </View>
-            <Text style={styles.copy}>Copyright by Thai-Nhan</Text>
-          </KeyboardAvoidingView>
         </View>
       </ImageBackground>
     );
@@ -124,12 +130,10 @@ export default class Login extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //backgroundColor: 'red',
     paddingHorizontal: 30,
   },
   containerlogin: {
     flex: 0.5,
-    //backgroundColor: 'blue',
     paddingHorizontal: 10,
     marginTop: 340,
   },
@@ -137,38 +141,25 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    //backgroundColor: '#fff',
-    //borderWidth: 0.5,
-    //borderColor: '#000',
-    //height: 40,
-    //borderRadius: 5,
     marginTop: 10,
   },
   textInput: {
     flex: 1,
-    // height: 50,
     textAlign: 'center',
     color: 'grey',
     marginTop: 10,
     fontSize: 18,
-    // borderBottomColor: '#111111',
-    //borderWidth: 1,
-    // borderRadius: 20,
     height: 40,
     borderColor: '#000000',
     borderBottomWidth: 1,
-    //inlineImageLeft="iconusername.png"
-    //marginBottom: 36
   },
   searchIcon: {
-    //color: 'grey',
     padding: 10,
     margin: 0,
     height: 25,
     width: 25,
     resizeMode: 'stretch',
     alignItems: 'center',
-    //backgroundColor: 'red'
   },
   button: {
     alignItems: 'center',
@@ -182,9 +173,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     backgroundColor: '#27AEEE',
     padding: 15,
-    //borderRadius: 20,
     marginTop: 4,
-    //color: '#EEE',
   },
   image: {
     flex: 1,

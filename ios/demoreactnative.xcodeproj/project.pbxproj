@@ -12,6 +12,10 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		4C805B0832974E9195ED6909 /* Tinos-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDE8128B01074CECBDB931F4 /* Tinos-Bold.ttf */; };
+		A1E56AF8D2AA45D58AD3A48D /* Tinos-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CBD0E737F47408AB9685BEF /* Tinos-BoldItalic.ttf */; };
+		252C11A9F8D3452AAA88742B /* Tinos-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD7650A7A490431F86373A23 /* Tinos-Italic.ttf */; };
+		3E9E4925FE65482FA5B5F233 /* Tinos-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1446BAB2146878D745AF6 /* Tinos-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = demoreactnative/main.m; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = demoreactnative/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		CDE8128B01074CECBDB931F4 /* Tinos-Bold.ttf */ = {isa = PBXFileReference; name = "Tinos-Bold.ttf"; path = "../assets/fonts/Tinos-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2CBD0E737F47408AB9685BEF /* Tinos-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Tinos-BoldItalic.ttf"; path = "../assets/fonts/Tinos-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CD7650A7A490431F86373A23 /* Tinos-Italic.ttf */ = {isa = PBXFileReference; name = "Tinos-Italic.ttf"; path = "../assets/fonts/Tinos-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5CC1446BAB2146878D745AF6 /* Tinos-Regular.ttf */ = {isa = PBXFileReference; name = "Tinos-Regular.ttf"; path = "../assets/fonts/Tinos-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,7 @@
 				00E356EF1AD99517003FC87E /* demoreactnativeTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				F03F948CCCA444BC9C44A758 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -123,6 +132,18 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		F03F948CCCA444BC9C44A758 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				CDE8128B01074CECBDB931F4 /* Tinos-Bold.ttf */,
+				2CBD0E737F47408AB9685BEF /* Tinos-BoldItalic.ttf */,
+				CD7650A7A490431F86373A23 /* Tinos-Italic.ttf */,
+				5CC1446BAB2146878D745AF6 /* Tinos-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -214,6 +235,10 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				4C805B0832974E9195ED6909 /* Tinos-Bold.ttf in Resources */,
+				A1E56AF8D2AA45D58AD3A48D /* Tinos-BoldItalic.ttf in Resources */,
+				252C11A9F8D3452AAA88742B /* Tinos-Italic.ttf in Resources */,
+				3E9E4925FE65482FA5B5F233 /* Tinos-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
