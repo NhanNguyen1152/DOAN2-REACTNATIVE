@@ -1,0 +1,48 @@
+@startuml uctotal
+skinparam linetype ortho
+' scale 0.5
+left to right direction
+actor "Sinh viên" as sv
+actor "Tập thể lớp" as ttl
+actor "Khoa đánh giá" as kdg
+rectangle "Mô hình Usercase Tổng Quan" {
+
+    usecase "XemKetQuanChamDiem" as XKQCD
+    usecase "ChamDiemRenLuyen" as CDRL
+    usecase "QuanLyThongTinCaNhan" as QLTTCN
+    usecase "XemKetQuaChamDiem" as XKQCD
+    usecase "DangNhap" as DN
+    usecase "DangKy" as DK
+
+    together {
+        sv -> DN
+        sv -> CDRL
+        sv ---> QLTTCN
+        sv -> XKQCD
+        sv -> DK
+        
+        ' ql -> QLSP
+        ' ql -> DN
+        ' ql ---> TSBCDTBH
+        ' ql -> QLDH
+        ' ql --> QLDM
+
+        ' QLDH ..[hidden]> DN : INCLUDE
+        ' QLSP .[hidden]> DN : INCLUDE
+        ' TSBCDTBH ..[hidden]> DN : INCLUDE
+    }
+
+    together {
+        ttl -> DN
+        kdg ---> DN
+        ttl --> CDRL
+        kdg ---> CDRL
+        ' XDSSP <--- kh
+        ' TKSP <- kh
+        ' SSSP <- kh
+        ' XSP <- kh
+        ' QLGH <- kh
+        
+    }
+}
+@enduml

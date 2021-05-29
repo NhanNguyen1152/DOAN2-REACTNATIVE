@@ -19,24 +19,6 @@ import firestore from '@react-native-firebase/firestore';
 import {color} from 'react-native-reanimated';
 
 export default class Login extends React.Component {
-  //static navigationOptions = {header: null}
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      Username: '',
-      Password: '',
-      email: '',
-      pass: '',
-      tam: '',
-    };
-  }
-
-  shoot = async () => {
-    const {navigate} = this.props.navigation;
-    navigate('Login');
-  };
-
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -64,7 +46,7 @@ const styles = StyleSheet.create({
     marginLeft: 200,
     marginTop: 450
   },
-  button: {
+  button: {   
     alignItems: 'center',
     backgroundColor: '#27AEEE',
     padding: 10,

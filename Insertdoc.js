@@ -60,7 +60,7 @@ export default class Insertdoc extends Component {
     return (
       <View style={styles.container}>
         <ImageBackground
-          source={require('./hinhanh/Themthongtin.png')}
+          source={require('./assets/backgrounds/nhaptt.png')}
           style={styles.image}
           imageStyle={{ borderRadius: 15 }}>
           <View style={styles.header}>
@@ -87,12 +87,12 @@ export default class Insertdoc extends Component {
             </View>
           </View>
           <View style={styles.footer}>
-            <View style={styles.btn_logouts}>
+            <View style={styles.view_btn}>
               <TouchableOpacity style={styles.btn_logout} onPress={this.themthongtin}>
-                <Text style={{ color: 'white' }}>Lưu thông tin</Text>
+                <Text  style={styles.text_btn}>Lưu thông tin</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.btn_logout} onPress={this.trolai}>
-                <Text style={{ color: 'white' }}>Trở lại</Text>
+                <Text style={styles.text_btn}>Trở lại</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 15,
     paddingVertical: 5,
-    //backgroundColor: 'yellow',
+    justifyContent: 'center',
   },
   image: {
     flex: 1,
@@ -165,24 +165,23 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.58,
     shadowRadius: 16.0,
     elevation: 24,
-    flexDirection: 'row',
   },
   title_infor: {
     fontSize: 18,
     textAlign: 'left',
-    borderBottomWidth: 0.5,
     fontFamily: 'Tinos-Bold',
   },
   text_infor: {
     fontSize: 17,
-    textAlign: 'right',
+    textAlign: 'left',
     borderBottomWidth: 0.5,
     fontFamily: 'Tinos-Regular',
   },
-  btn_logouts: {
+  view_btn: {
     flexDirection: 'row-reverse',
-    padding: 25,
-    backgroundColor: 'red'
+    justifyContent: 'space-between',
+    padding: 15,
+    marginHorizontal:10
   },
   btn_logout: {
     elevation: 5,
@@ -190,21 +189,11 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     paddingVertical: 10,
     paddingHorizontal: 12,
-  },
-  view_uc_pass: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 10,
-  },
-  textInput: {
-    flex: 1,
     textAlign: 'center',
-    color: 'grey',
-    marginTop: 10,
-    fontSize: 18,
-    height: 40,
-    borderColor: '#000000',
-    borderBottomWidth: 1,
   },
+  text_btn: {
+    fontFamily: 'Tinos-Regular',
+    color: 'azure',
+    fontSize: 17
+  }
 });
